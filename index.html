@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Video editing portfolio of Aniket Koli, featuring YouTube videos and short-form reels.">
+<title>Aniket Koli | Video Editor</title>
+<style>
+:root{color-scheme:dark;--ink:#11110f;--panel:#1c1b18;--white:#f2efe8;--muted:#aaa69d;--line:#38352f;--gold:#f6c56d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--white);font:16px/1.55 system-ui,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:5px}.wrap{width:min(1320px,92%);margin:auto}
+header{border-bottom:1px solid var(--line)}nav{display:flex;align-items:center;justify-content:space-between;min-height:74px;gap:18px}.brand{font-weight:850;letter-spacing:-.06em;font-size:1.45rem}.brand span, .kicker,.platform{color:var(--gold)}.navlinks{display:flex;gap:clamp(14px,3vw,40px);font-size:.92rem}.navlinks a:hover,footer a:hover{color:var(--gold)}
+.hero{padding:clamp(48px,7vw,110px) 0 46px;display:grid;grid-template-columns:1fr .88fr;gap:clamp(25px,5vw,85px);align-items:center}.kicker,.platform{font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;font-weight:750}h1,h2,h3,p{margin:0}h1{font-size:clamp(3.8rem,8.3vw,9rem);line-height:.86;letter-spacing:-.095em;font-weight:900;margin:20px 0 26px}h1 span{display:block;color:var(--gold);font-size:.62em;letter-spacing:-.075em;line-height:1.12}.hero p,.about p{color:var(--muted);max-width:42ch}.action{display:inline-block;margin-top:25px;background:var(--gold);color:var(--ink);padding:12px 19px;border-radius:4px;font-weight:760}.frame,.visual{position:relative;overflow:hidden;background:radial-gradient(ellipse at 32% 20%,#554339,#211b17 65%);display:grid;place-items:center}.frame{aspect-ratio:16/10;border:1px solid var(--line);min-width:0}
+.frame img,.visual img{position:absolute;width:100%;height:100%;object-fit:cover}.play{z-index:1;display:grid;place-items:center;width:56px;height:56px;border:1px solid #ffffff80;border-radius:50%;background:#111b;font-size:20px}.frame:hover .play,.visual:hover .play{background:var(--gold);color:var(--ink)}
+section.work,.about{border-top:1px solid var(--line);padding:clamp(34px,6vw,78px) 0}.workhead{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}h2{font-size:clamp(2.4rem,5vw,5.5rem);line-height:.98;letter-spacing:-.075em}.filters{display:flex;gap:7px;flex-wrap:wrap}.filters button,.close{border:1px solid var(--line);border-radius:4px;padding:8px 12px;background:var(--ink)}.filters [aria-pressed=true]{background:var(--gold);color:var(--ink);border-color:var(--gold)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);background:var(--panel);min-width:0}.visual{width:100%;padding:0;border:0;aspect-ratio:16/9}.vertical{aspect-ratio:4/5;background:radial-gradient(ellipse at 26% 10%,#614033,#251d26 62%,#19191c)}.vertical:before{content:"";position:absolute;inset:8% 24%;border:1px solid #ffffff2e;border-radius:16px;background:linear-gradient(150deg,#ffffff18,transparent 48%,#0004)}.tone1{background:radial-gradient(ellipse at 60% 0%,#384f45,#172b2b 63%,#101818)}.tone2{background:radial-gradient(ellipse at 20% 0%,#5c4a30,#392524 66%,#1c1919)}.info{padding:13px 15px 17px}.info h3{font-size:1.06rem;line-height:1.35;margin-top:4px}.info a:hover{text-decoration:underline}.about{display:grid;grid-template-columns:1fr .85fr;gap:20px}footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:25px 0;color:var(--muted);gap:20px}
+dialog{width:min(850px,92vw);max-height:90dvh;border:1px solid var(--line);color:var(--white);background:var(--ink);padding:16px}dialog::backdrop{background:#000d}.dialoghead{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:12px}.player iframe{display:block;border:0;width:100%;aspect-ratio:16/9}.reel-player{width:min(440px,92vw)}.reel-player .player iframe{aspect-ratio:auto;height:min(68dvh,690px)}.original{display:inline-block;color:var(--gold);text-decoration:underline;margin-top:12px}
+@media(max-width:760px){.hero,.about{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:390px){.grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body id="top">
+<header><nav class="wrap" aria-label="Main navigation"><a class="brand" href="#top">Aniket Koli<span>.</span></a><div class="navlinks"><a href="#work">Work</a><a href="#about">About</a></div></nav></header>
+<main class="wrap">
+<section class="hero" aria-labelledby="hero-title">
+<div><div class="kicker">Video Editing Portfolio</div><h1 id="hero-title">Aniket Koli<span>Video Editor.</span></h1><p>Selected video edits, from YouTube projects to vertical reels.</p><a class="action" href="#work">Explore work</a></div>
+<button class="frame" id="featured" type="button" aria-label="Play featured YouTube video"><span class="play" aria-hidden="true">▶</span></button>
+</section>
+<section class="work" id="work" aria-labelledby="work-title">
+<div class="workhead"><h2 id="work-title">Selected work</h2><div class="filters" aria-label="Filter projects"><button type="button" aria-pressed="true" data-filter="all">All work</button><button type="button" aria-pressed="false" data-filter="youtube">YouTube</button><button type="button" aria-pressed="false" data-filter="instagram">Reels</button></div></div>
+<div class="grid" id="gallery"></div>
+</section>
+<section class="about" id="about"><h2>Meet Aniket.</h2><p>I’m Aniket Koli, a video editor. My portfolio includes long-form YouTube videos and vertical reels.</p></section>
+</main>
+<footer class="wrap"><a class="brand" href="#top">Aniket Koli<span>.</span></a><a href="#top">Back to top</a></footer>
+<dialog id="watch" aria-labelledby="watch-title"><div class="dialoghead"><h3 id="watch-title"></h3><button class="close" type="button">Close</button></div><div class="player"></div><a class="original" target="_blank" rel="noopener noreferrer"></a></dialog>
+<script>
+const titles = {};
+const youtube = ['Ul7HFLJajO0','dvfF0sSyPjk','xybbBuTk3mQ','ER1Sa6RHPOU','HaI70HFymKw'];
+const instagram = ['DgL7st-jm4t','Df7aT7IkXyH','DflXjwOuuCS','Df5560iunD9','DgJWrnbu8UW','DgJlcl0onmY'];
+const projects = [
+  ...youtube.map((id,index)=>({id,kind:'youtube',platform:'YouTube',title:titles[id] || 'YouTube project '+(index+1),url:'https://www.youtube.com/watch?v='+id})),
+  ...instagram.map((id,index)=>({id,kind:'instagram',platform:'Instagram',title:'Instagram Reel '+(index+1),url:'https://www.instagram.com/reel/'+id+'/'}))
+];
+const watch = document.querySelector('#watch');
+const player = watch.querySelector('.player');
+function openProject(project) {
+  watch.querySelector('h3').textContent = project.title;
+  const original = watch.querySelector('.original');
+  original.href = project.url;
+  const isReel = project.kind === 'instagram';
+  watch.classList.toggle('reel-player',isReel);
+  original.textContent = 'Open on '+project.platform;
+  const iframe = document.createElement('iframe');
+  iframe.src = isReel ? project.url+'embed/' : 'https://www.youtube-nocookie.com/embed/'+project.id+'?autoplay=1';
+  iframe.title = project.title;
+  iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  iframe.allowFullscreen = true;
+  player.replaceChildren(iframe);
+  watch.showModal();
+}
+watch.querySelector('.close').addEventListener('click',()=>watch.close());
+watch.addEventListener('close',()=>player.replaceChildren());
+function addThumbnail(target,project) {
+  const image = document.createElement('img');
+  image.alt = '';
+  image.loading = target.id === 'featured' ? 'eager' : 'lazy';
+  image.src = 'https://i.ytimg.com/vi/'+project.id+'/hqdefault.jpg';
+  image.addEventListener('error',()=>image.remove());
+  target.prepend(image);
+}
+const featuredProject = projects.find(project=>titles[project.id]) || projects[0];
+const featured = document.querySelector('#featured');
+addThumbnail(featured,featuredProject);
+featured.addEventListener('click',()=>openProject(featuredProject));
+const gallery = document.querySelector('#gallery');
+const cards = projects.map((project,index)=>{
+  const card = document.createElement('article');
+  card.className = 'card';
+  const isVideo = project.kind === 'youtube';
+  const visual = document.createElement('button');
+  visual.className = 'visual'+(isVideo ? '' : ' vertical tone'+(index%3));
+  visual.setAttribute('aria-label','Play '+project.title);
+  const icon = document.createElement('span');
+  icon.className = 'play';
+  icon.setAttribute('aria-hidden','true');
+  icon.textContent = '▶';
+  visual.append(icon);
+  visual.type = 'button';
+  if (isVideo) addThumbnail(visual,project);
+  visual.addEventListener('click',()=>openProject(project));
+  const info = document.createElement('div');
+  info.className = 'info';
+  const platform = document.createElement('div');
+  platform.className = 'platform';
+  platform.textContent = project.platform;
+  const name = document.createElement('h3');
+  const link = document.createElement('a');
+  link.href = project.url;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.textContent = project.title;
+  name.append(link);
+  info.append(platform,name);
+  card.append(visual,info);
+  gallery.append(card);
+  return {card,kind:project.kind};
+});
+document.querySelectorAll('[data-filter]').forEach(button=>{
+  button.addEventListener('click',()=>{
+    document.querySelectorAll('[data-filter]').forEach(option=>option.setAttribute('aria-pressed',String(option===button)));
+    for(const {card,kind} of cards) card.hidden = button.dataset.filter !== 'all' && button.dataset.filter !== kind;
+  });
+});
+</script>
+</body>
+</html>
