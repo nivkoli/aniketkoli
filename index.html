@@ -30,6 +30,8 @@ section.work,.about{border-top:2px solid var(--ink)}.workhead{margin-bottom:32px
 .design-visual{aspect-ratio:4/5;background:#eeebe1}.design-visual img{object-fit:contain;inset:0}
 #artwork{width:max-content;max-width:92vw}#artwork img{display:block;width:auto;height:auto;max-width:100%;max-height:72dvh;margin:auto;object-fit:contain}
 #logo-gallery{margin-top:24px}#logo-gallery[hidden]{display:none}.logo-card .design-visual{aspect-ratio:1;background:#252321}
+
+.showcase{min-width:0}.showcase .frame{width:100%;background:#262421}.showcase .frame img{animation:featured-in .45s ease-out both}.showcase .frame.is-reel img{object-fit:contain}.show-controls{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:19px}.show-controls button{background:var(--panel);border:1px solid var(--ink);padding:4px 11px;min-height:35px;font-weight:700}.show-controls button:hover{background:var(--gold)}#show-position{font-size:.85rem;font-weight:700;text-align:center}@keyframes featured-in{from{opacity:.3;transform:scale(.97)}to{opacity:1;transform:scale(1)}}@media(prefers-reduced-motion:reduce){.showcase .frame img{animation:none}}
 </style>
 </head>
 <body id="top">
@@ -37,7 +39,15 @@ section.work,.about{border-top:2px solid var(--ink)}.workhead{margin-bottom:32px
 <main class="wrap">
 <section class="hero" aria-labelledby="hero-title">
 <div><div class="kicker">Video Editing Portfolio</div><h1 id="hero-title">Aniket Koli<span>Video Editor.</span></h1><p>I edit YouTube videos and short-form reels, and create motion graphics and visual designs for brands.</p><a class="action" href="#work">Explore work</a></div>
-<button class="frame" id="featured" type="button" aria-label="Play featured YouTube video"><span class="play" aria-hidden="true">▶</span></button>
+<div class="showcase" role="region" aria-label="Featured videos">
+  <button class="frame" id="featured" type="button"><span class="play" aria-hidden="true">▶</span></button>
+  <div class="show-controls">
+    <button type="button" id="previous" aria-label="Previous video">‹</button>
+    <span id="show-position"></span>
+    <button type="button" id="next" aria-label="Next video">›</button>
+    <button type="button" id="rotation" aria-pressed="false">Pause</button>
+  </div>
+</div>
 </section>
 <section class="work" id="work" aria-labelledby="work-title">
 <div class="workhead"><h2 id="work-title">Selected work</h2><div class="filters" aria-label="Filter projects"><button type="button" aria-pressed="true" data-filter="all">All work</button><button type="button" aria-pressed="false" data-filter="youtube">YouTube</button><button type="button" aria-pressed="false" data-filter="instagram">Reels</button><button type="button" aria-pressed="false" data-filter="ai">AI Video</button><button type="button" aria-pressed="false" data-filter="design">Graphic Design</button><button type="button" aria-pressed="false" data-filter="logo">Logo Design</button></div></div>
@@ -99,10 +109,40 @@ function addThumbnail(target,project) {
   image.addEventListener('error',()=>image.remove());
   target.prepend(image);
 }
-const featuredProject = projects.find(project=>titles[project.id]) || projects[0];
+const featuredIds = ['Ul7HFLJajO0','DgL7st-jm4t','xybbBuTk3mQ','DgKg3JARd8g','DgMKvx_x5IN'];
+const featuredProjects = featuredIds.map(id=>projects.find(project=>project.id===id));
 const featured = document.querySelector('#featured');
-addThumbnail(featured,featuredProject);
-featured.addEventListener('click',()=>openProject(featuredProject));
+const rotation = document.querySelector('#rotation');
+const position = document.querySelector('#show-position');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let slide = 0;
+let paused = reduceMotion.matches;
+function displayFeatured(index) {
+  slide = (index + featuredProjects.length) % featuredProjects.length;
+  const project = featuredProjects[slide];
+  featured.querySelector('img')?.remove();
+  featured.classList.toggle('is-reel',project.kind === 'instagram');
+  featured.setAttribute('aria-label','Play featured video: '+project.title);
+  const label = project.category === 'ai' ? 'AI Video' : project.platform;
+  position.textContent = label+' · '+(slide+1)+' / '+featuredProjects.length;
+  addThumbnail(featured,project);
+}
+function setPaused(value) {
+  paused = value;
+  rotation.textContent = value ? 'Resume' : 'Pause';
+  rotation.setAttribute('aria-pressed',String(value));
+}
+featured.addEventListener('click',()=>openProject(featuredProjects[slide]));
+document.querySelector('#previous').addEventListener('click',()=>{setPaused(true);displayFeatured(slide-1);});
+document.querySelector('#next').addEventListener('click',()=>{setPaused(true);displayFeatured(slide+1);});
+rotation.addEventListener('click',()=>setPaused(!paused));
+reduceMotion.addEventListener('change',event=>setPaused(event.matches));
+displayFeatured(slide);
+setPaused(paused);
+window.setInterval(()=>{
+  const showcase = featured.closest('.showcase');
+  if (!paused && !watch.open && !document.hidden && !showcase.matches(':hover, :focus-within')) displayFeatured(slide+1);
+},5000);
 const gallery = document.querySelector('#gallery');
 const cards = projects.map((project,index)=>{
   const card = document.createElement('article');
