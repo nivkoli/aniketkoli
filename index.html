@@ -32,21 +32,16 @@ section.work,.about{border-top:2px solid var(--ink)}.workhead{margin-bottom:32px
 #logo-gallery{margin-top:24px}#logo-gallery[hidden]{display:none}.logo-card .design-visual{aspect-ratio:1;background:#252321}
 
 .showcase{min-width:0}.showcase .frame{width:100%;background:#262421}.showcase .frame img{animation:featured-in .45s ease-out both}.showcase .frame.is-reel img{object-fit:contain}.show-controls{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:19px}.show-controls button{background:var(--panel);border:1px solid var(--ink);padding:4px 11px;min-height:35px;font-weight:700}.show-controls button:hover{background:var(--gold)}#show-position{font-size:.85rem;font-weight:700;text-align:center}@keyframes featured-in{from{opacity:.3;transform:scale(.97)}to{opacity:1;transform:scale(1)}}@media(prefers-reduced-motion:reduce){.showcase .frame img{animation:none}}
-
-.show-controls[hidden],main>section[hidden]{display:none}
-header{position:sticky;top:0;z-index:5}
-.navlinks a[aria-current="page"]{text-decoration:underline;text-decoration-color:#9b3908;text-underline-offset:5px}
-@media(max-width:420px){nav{gap:8px}.brand{font-size:1.15rem}.navlinks{gap:12px}}
 </style>
 </head>
 <body id="top">
-<header><nav class="wrap" aria-label="Main navigation"><a class="brand" href="#top">Aniket Koli<span>.</span></a><div class="navlinks"><a href="#top">Home</a><a href="#work">Work</a><a href="#about">About</a></div></nav></header>
+<header><nav class="wrap" aria-label="Main navigation"><a class="brand" href="#top">Aniket Koli<span>.</span></a><div class="navlinks"><a href="#work">Work</a><a href="#about">About</a></div></nav></header>
 <main class="wrap">
 <section class="hero" aria-labelledby="hero-title">
 <div><div class="kicker">Video Editing Portfolio</div><h1 id="hero-title">Aniket Koli<span>Video Editor.</span></h1><p>I edit YouTube videos and short-form reels, and create motion graphics and visual designs for brands.</p><a class="action" href="#work">Explore work</a></div>
 <div class="showcase" role="region" aria-label="Featured videos">
   <button class="frame" id="featured" type="button"><span class="play" aria-hidden="true">▶</span></button>
-  <div class="show-controls" hidden>
+  <div class="show-controls">
     <button type="button" id="previous" aria-label="Previous video">‹</button>
     <span id="show-position"></span>
     <button type="button" id="next" aria-label="Next video">›</button>
@@ -203,23 +198,6 @@ document.querySelectorAll('[data-filter]').forEach(button=>{
     for(const {card,category} of cards) card.hidden = button.dataset.filter !== 'all' && button.dataset.filter !== category;
   });
 });
-
-const views = new Map([
-  ['#top',document.querySelector('.hero')],
-  ['#work',document.querySelector('#work')],
-  ['#about',document.querySelector('#about')]
-]);
-function showView() {
-  const route = views.has(location.hash) ? location.hash : '#top';
-  for (const [hash,section] of views) section.hidden = hash !== route;
-  document.querySelectorAll('.navlinks a').forEach(link=>{
-    if (link.hash === route) link.setAttribute('aria-current','page');
-    else link.removeAttribute('aria-current');
-  });
-  window.scrollTo({top:0,behavior:'instant'});
-}
-window.addEventListener('hashchange',showView);
-showView();
 </script>
 </body>
 </html>
