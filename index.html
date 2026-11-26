@@ -79,10 +79,10 @@ header{position:sticky;top:0;z-index:5}
 <dialog id="artwork" aria-labelledby="artwork-title"><div class="dialoghead"><h3 id="artwork-title"></h3><form method="dialog"><button class="close">Close</button></form></div><img alt=""></dialog>
 <dialog id="watch" aria-labelledby="watch-title"><div class="dialoghead"><h3 id="watch-title"></h3><button class="close" type="button">Close</button></div><div class="player"></div><a class="original" target="_blank" rel="noopener noreferrer"></a></dialog>
 <script>
-const covers = {"DgL7st-jm4t": "./portfolio-image-36.webp", "Df7aT7IkXyH": "./portfolio-image-37.webp", "DflXjwOuuCS": "./portfolio-image-38.webp", "Df5560iunD9": "./portfolio-image-39.webp", "DgJWrnbu8UW": "./portfolio-image-40.webp", "DgJlcl0onmY": "./portfolio-image-41.webp", "DgKg3JARd8g": "./portfolio-image-42.webp", "Df_PlEdoJBR": "./portfolio-image-43.webp", "Df_QNFDIq7y": "./portfolio-image-44.webp", "DgMKvx_x5IN": "./portfolio-image-45.webp"};
+const covers = {"DgL7st-jm4t":"./portfolio-image-36.webp","Df7aT7IkXyH":"./portfolio-image-37.webp","DflXjwOuuCS":"./portfolio-image-38.webp","Df5560iunD9":"./portfolio-image-39.webp","DgJWrnbu8UW":"./portfolio-image-40.webp","DgJlcl0onmY":"./portfolio-image-41.webp","DgKg3JARd8g":"./portfolio-image-42.webp","Df_PlEdoJBR":"./portfolio-image-43.webp","Df_QNFDIq7y":"./portfolio-image-44.webp","DgMKvx_x5IN":"./portfolio-image-45.webp","DZciD1UvhzR":"./reel-DZciD1UvhzR.webp","DXZR2DvCK1e":"./reel-DXZR2DvCK1e.webp","DNidChvvgIr":"./reel-DNidChvvgIr.webp","DNx_YTYXrzh":"./reel-DNx_YTYXrzh.webp","DamfCRuK96r":"./reel-DamfCRuK96r.webp"};
 const titles = {};
 const youtube = ['Ul7HFLJajO0','dvfF0sSyPjk','xybbBuTk3mQ','ER1Sa6RHPOU','HaI70HFymKw'];
-const instagram = ['DgL7st-jm4t','Df7aT7IkXyH','DflXjwOuuCS','Df5560iunD9','DgJWrnbu8UW','DgJlcl0onmY'];
+const instagram = ['DgL7st-jm4t','Df7aT7IkXyH','DflXjwOuuCS','Df5560iunD9','DgJWrnbu8UW','DgJlcl0onmY',"DZciD1UvhzR","DXZR2DvCK1e","DNidChvvgIr","DNx_YTYXrzh","DamfCRuK96r"];
 const aiVideos = ["DgKg3JARd8g", "Df_PlEdoJBR", "Df_QNFDIq7y", "DgMKvx_x5IN"];
 const projects = [
   ...youtube.map((id,index)=>({id,kind:'youtube',platform:'YouTube',title:titles[id] || 'YouTube project '+(index+1),url:'https://www.youtube.com/watch?v='+id})),
